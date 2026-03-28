@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ভাষণ | তর্জনী</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="assets/mujib.mp3" type="audio/mpeg">
+</audio>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<header class="navbar">
+
+<div class="logo">
+  <a href="index.html">
+    <img src="assets/Finger.png" draggable="false">
+  </a>
+</div>
+
+  <h1 class="nav-title">বঙ্গবন্ধুর ভাষণসমূহ</h1>
+
+<div class="menu-toggle" id="menuToggle">
+☰
+</div>
+
+<nav id="navMenu">
+<a href="speeches.html">ভাষণসমূহ</a>
+</nav>
+</header>
+
+  <section class="speech-details">
+    <h2 id="speechTitle"></h2>
+
+    <div class="video-wrapper">
+  <iframe id="youtubePlayer"
+    width="100%"
+    height="400"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+    </div>
+
+    <div class="speech-meta">
+      <p id="speechYear"></p>
+      <p id="speechLocation"></p>
+    </div>
+
+    <div class="speech-context">
+      <h3>প্রেক্ষাপট</h3>
+      <p id="speechContext"></p>
+    </div>
+  </section>
+
+<!-- ============== JavaScript for Navbar Toggle ============== -->
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
+
+if(toggle){
+toggle.onclick = function(){
+
+nav.classList.toggle("active");
+overlay.classList.toggle("active");
+
+};
+}
+
+if(overlay){
+overlay.onclick = function(){
+
+nav.classList.remove("active");
+overlay.classList.remove("active");
+
+};
+}
+
+</script>
+
+<script>
+const links = document.querySelectorAll("#navMenu a");
+
+links.forEach(link=>{
+link.addEventListener("click",()=>{
+nav.classList.remove("active");
+overlay.classList.remove("active");
+});
+});
+
+</script>
+
+<!-- ============== Footer ============== -->
+
+<footer>
+  <p>© 2026 তর্জনী | একটি ঐতিহাসিক সংকলন</p>
+</footer>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+  
+</script>
+
+<script type="module" src="js/speechDetails.js"></script>
+</body>
+</html>

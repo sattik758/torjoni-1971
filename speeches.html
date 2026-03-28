@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ভাষণসমূহ | তর্জনী</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kalpurush&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="speeches-page">
+
+<audio id="bgMusic" loop>
+  <source src="assets/mujib.mp3" type="audio/mpeg">
+</audio>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<header class="navbar">
+
+<div class="logo">
+  <a href="index.html">
+    <img src="assets/Finger.png" draggable="false">
+  </a>
+</div>
+
+<div class="menu-toggle" id="menuToggle">
+☰
+</div>
+
+<nav id="navMenu">
+<!-- <a href="speeches.html">ভাষণসমূহ</a> -->
+</nav>
+
+</header>
+
+<!-- ================= SPEECH LIST SECTION ================= -->
+
+<section class="speech-section">
+
+  <h2 class="page-title">ভাষণসমূহ</h2>
+
+  <div class="speech-list-clean">
+
+    <a href="speech.html?id=21feb" class="speech-item">
+      ২১শে ফেব্রুয়ারি শহিদ মিনারের সামনে ভাষণ (১৯৭১)
+    </a>
+
+    <a href="speech.html?id=7march" class="speech-item">
+      ৭ই মার্চের ঐতিহাসিক ভাষণ (রেসকোর্স ময়দান, ১৯৭১)
+    </a>
+
+    <a href="speech.html?id=26march" class="speech-item">
+        ২৬শে মার্চের স্বাধীনতার ঘোষণা (১৯৭১)
+    </a>
+
+    <a href="speech.html?id=london1972" class="speech-item">
+        লন্ডনে সংবাদ সম্মেলন (৯ জানুয়ারি ১৯৭২)
+    </a>
+
+    <a href="speech.html?id=brigade1972" class="speech-item">
+        ব্রিগেড প্যারেড গ্রাউন্ডে ভাষণ (১০ জানুয়ারি ১৯৭২)
+    </a>
+
+    <a href="speech.html?id=homecoming" class="speech-item">
+        স্বদেশ প্রত্যাবর্তনের ভাষণ (১০ জানুয়ারি ১৯৭২)
+    </a>
+
+    <a href="speech.html?id=muktifauj1972" class="speech-item">
+        মুক্তি ফৌজের আত্মসমর্পণ উপলক্ষে ভাষণ (৩১ জানুয়ারি ১৯৭২)
+    </a>
+
+    <a href="speech.html?id=nam1973" class="speech-item">
+        নিরপেক্ষ জোট সম্মেলনে ভাষণ (NAM Conference, ১৯৭৩)
+    </a>
+
+    <a href="speech.html?id=unitednations" class="speech-item">
+        জাতিসংঘে বাংলায় ভাষণ (১৯৭৪)
+    </a>
+
+    <a href="speech.html?id=bdr1974" class="speech-item">
+        বাংলাদেশ রাইফেলস (বিডিআর) তৃতীয় ব্যাচের সমাপনী কুচকাওয়াজে ভাষণ (৫ ডিসেম্বর ১৯৭৪)
+    </a>
+
+    <a href="speech.html?id=bma1975" class="speech-item">
+        বাংলাদেশ মিলিটারি একাডেমির প্রথম ব্যাচের উদ্দেশ্যে ভাষণ (১১ জানুয়ারি ১৯৭৫)
+    </a>
+
+  </div>
+
+</section>
+
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
+
+if(toggle){
+toggle.onclick = function(){
+
+nav.classList.toggle("active");
+overlay.classList.toggle("active");
+
+};
+}
+
+if(overlay){
+overlay.onclick = function(){
+
+nav.classList.remove("active");
+overlay.classList.remove("active");
+
+};
+}
+
+</script>
+
+<script>
+const links = document.querySelectorAll("#navMenu a");
+
+links.forEach(link=>{
+link.addEventListener("click",()=>{
+nav.classList.remove("active");
+overlay.classList.remove("active");
+});
+});
+
+</script>
+
+<footer>
+  © 2026 তর্জনী | একটি ঐতিহাসিক সংকলন
+</footer>
+
+<script src="js/music.js"></script>
+
+</body>
+</html>

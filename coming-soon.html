@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>শীঘ্রই আসছে | তর্জনী</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="comingBody" class="coming-page">
+
+<audio id="bgMusic" loop>
+  <source src="assets/mujib.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SAME NAVBAR -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<header class="navbar">
+
+<div class="logo">
+  <a href="index.html">
+    <img src="assets/Finger.png" draggable="false">
+  </a>
+</div>
+
+<div class="menu-toggle" id="menuToggle">
+☰
+</div>
+
+<nav id="navMenu">
+<a href="speeches.html">ভাষণসমূহ</a>
+</nav>
+</header>
+
+<section class="coming-container">
+  <h1>শীঘ্রই আপলোড হবে</h1>
+  <p>অপেক্ষা করুন...</p>
+</section>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+
+const body = document.getElementById("comingBody");
+
+if (type === "21 february") {
+  body.classList.add("february21-page");
+}
+
+if (type === "26march") {
+  body.classList.add("march26-page");
+}
+
+if (type === "homecoming") {
+  body.classList.add("homecoming-page");
+}
+
+if (type === "muktifauj1972") {
+  body.classList.add("muktifauj-page");
+}
+
+if (type === "unitednations") {
+  body.classList.add("unitednations-page");
+}
+
+if (type === "london1972") {
+  body.classList.add("london-page");
+}
+
+if (type === "brigade1972") {
+  body.classList.add("brigade-page");
+}
+
+</script>
+
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
+
+if(toggle){
+toggle.onclick = function(){
+
+nav.classList.toggle("active");
+overlay.classList.toggle("active");
+
+};
+}
+
+if(overlay){
+overlay.onclick = function(){
+
+nav.classList.remove("active");
+overlay.classList.remove("active");
+
+};
+}
+
+</script>
+
+<footer>
+  © 2026 তর্জনী | একটি ঐতিহাসিক সংকলন
+</footer>
+
+<script src="js/music.js"></script>
+
+</body>
+</html>

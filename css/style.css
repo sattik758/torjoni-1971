@@ -1,0 +1,853 @@
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+  --green: #006A4E;
+  --red: #F42A41;
+  --dark: #0f1a17;
+  --light-dark: #132520;
+  --white: #ffffff;
+  --gray: #cfcfcf;
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kalpurush', sans-serif;
+  background-color: var(--dark);
+  color: var(--white);
+  line-height: 1.6;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+p {
+  font-size: 15px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  display:flex;
+  position:relative;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 25px;
+  background:linear-gradient(90deg,#0b3d2e,#0f5c45);
+}
+
+.nav-title{
+  font-size:28px;
+  font-weight:600;
+  color:white;
+  letter-spacing:1px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 55px;
+  width: auto;
+}
+.navbar nav a {
+  padding: 8px 18px;
+  background: #800020;   /* Maroon */
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.navbar nav{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.navbar nav a:hover {
+  background: #a0002a;
+  transform: translateY(-2px);
+}
+
+#musicToggle{
+padding:8px 18px;
+background:#800020;
+color:white;
+border:2px solid white;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+.menu-toggle{
+display:none;
+font-size:32px;
+cursor:pointer;
+color:white;
+z-index:1000;
+}
+
+/* ================= NAV SIGNATURE CENTER ================= */
+
+/* .navbar {
+  position: relative;   
+} */
+
+/* =========================
+   HERO SECTION (REFINED)
+========================= */
+
+.hero {
+  position: relative;
+  min-height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #006A4E;
+}
+
+.hero-circle {
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.hero-signature{
+  position:absolute;
+  top:260px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+}
+
+.hero-signature img{
+  height:110px;
+  opacity:0.9;
+}
+
+/* Red Circle */
+.flag-overlay {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: #F42A41;
+  border-radius: 50%;
+  z-index: 1;
+
+  animation: redBreath 5s ease-in-out infinite;
+}
+
+/* Subtle Ripple Effect */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+              rgba(244,42,65,0.15) 0%,
+              rgba(0,106,78,0.2) 60%,
+              rgba(0,0,0,0.3) 100%);
+  animation: rippleMove 8s linear infinite;
+  z-index: 0;
+}
+
+/* Mujib Watermark */
+.mujib-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("../assets/Mujib Background.png") center 50% no-repeat;
+  background-size: 65%;
+  opacity: 0.30;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Content */
+.hero-content {
+  position:absolute;
+  top:40px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  z-index:3;
+}
+
+.hero-content h2 {
+  font-size: 44px;
+  margin-top: 40px;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+/* Subtle Pulse */
+@keyframes gentlePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* Ripple Movement */
+@keyframes redBreath {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-btn {
+  padding: 14px 30px;
+  background: #DC143C;   /* Crimson */
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  margin-top: 220px;
+}
+
+.primary-btn:hover {
+  background: #b01030;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+  text-align: center;
+  margin: 60px 0 40px;
+  font-size: 28px;
+}
+
+/* =========================
+   SPEECH LIST
+========================= */
+
+.speech-list {
+  padding: 0 40px 100px;
+}
+
+.speech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* =========================
+   SPEECH CARD
+========================= */
+
+.speech-card {
+  background: var(--light-dark);
+  padding: 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.speech-card:hover {
+  transform: translateY(-8px);
+  background: var(--green);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.speech-card h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.speech-card p {
+  font-size: 14px;
+  color: var(--gray);
+}
+
+/* =========================
+   SPEECH DETAILS PAGE
+========================= */
+
+.speech-details {
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 30px 0;
+  border-radius: 10px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.speech-meta {
+  margin-bottom: 20px;
+}
+
+.speech-meta p {
+  font-size: 20px;
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.speech-context {
+  margin-top: 30px;
+  background: var(--light-dark);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.speech-context p{
+  margin-bottom:16px;
+  line-height:1.9;
+  font-size:17px;
+  text-align: justify;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 18px;
+  background: #081f18;
+  margin-top: 1px;
+  font-size: 14px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width:768px){
+
+.navbar{
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+}
+
+.logo img{
+  height:45px;
+}
+
+.navbar nav a,
+#musicToggle{
+  padding:5px 8px;
+  font-size:11px;
+}
+
+}
+  /* Hero slightly adjust */
+@media (max-width: 768px) {
+
+  .hero-content h2 {
+    font-size: 26px;
+  }
+
+  .primary-btn {
+    padding: 12px 22px;
+    font-size: 16px;
+  }
+
+  .flag-overlay {
+    width: 280px;
+    height: 280px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .speeches-page {
+    background-attachment: scroll;
+  }
+}
+
+/* ================= SPEECH PAGE BACKGROUND (REFINED) ================= */
+
+.speeches-page {
+  position: relative;
+  min-height: 100vh;
+  background: url("../assets/bangabandhu-page2.jpg") center top no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Cinematic overlay */
+.speeches-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+      rgba(0, 30, 20, 0.75),
+      rgba(0, 25, 18, 0.85)
+  );
+  z-index: 0;
+}
+
+/* Keep content above overlay */
+.speeches-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.speech-section {
+  padding: 40px 40px 80px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+
+.speech-list-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.speech-item {
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 20px 28px;
+  border-left: 5px solid #F42A41;
+  font-size: 19px;
+  color: #ffffff;
+  transition: 0.3s ease;
+  border-radius: 6px;
+}
+
+.speech-item:hover {
+  background: rgba(0, 0, 0, 0.55);
+  transform: translateX(10px);
+}
+
+
+/* ================= 21 FEBRUARY PAGE BACKGROUND ================= */
+
+.feb21-page {
+  position: relative;
+  min-height: 100vh;
+  background: url("../assets/21february.png") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.feb21-page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,20,15,0.85);
+  z-index:0;
+}
+
+.feb21-page > *{
+  position:relative;
+  z-index:1;
+}
+
+/* ================= 7 MARCH PAGE BACKGROUND ================= */
+
+.march7-page {
+  position: relative;
+  min-height: 100vh;
+  background: url("../assets/7March_Bangabandhu.jpg") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.march7-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.march7-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================= COMING SOON PAGE ================= */
+
+.coming-page {
+  position: relative;
+  min-height: 100vh;
+  background: url("../assets/Mujib Background.png") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.coming-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 25, 18, 0.85);
+  z-index: 0;
+}
+
+.coming-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.coming-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.coming-container h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.coming-container p {
+  font-size: 22px;
+  color: #F42A41;
+}
+
+
+/* ================= 26 MARCH BACKGROUND ================= */
+
+.march26-page {
+  background: url("../assets/26March_Bangabandhu.png") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.march26-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.march26-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================= LONDON PRESS CONFERENCE BACKGROUND ================= */
+.london-page{
+  background:url("../assets/press-conference.png") center/cover no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.london-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.london-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================= HOMECOMING BACKGROUND ================= */
+
+.homecoming-page {
+  background-image: url("../assets/homecoming.png");
+  background-size: cover;
+  background-position: center -185%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.homecoming-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.homecoming-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= UNITED NATIONS BACKGROUND ================= */
+
+.unitednations-page {
+  background: url("../assets/unitednations.jpg") center -60% no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.unitednations-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.unitednations-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= BMA SPEECH 1975 BACKGROUND ================= */
+
+.bma-page {
+  background: url("../assets/bma1975.png") center/cover no-repeat;
+  background-size: cover;
+  background-position: center -15%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.bma-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.bma-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= OTHER SPEECH BACKGROUNDS ================= */
+
+
+.brigade-page{
+  background:url("../assets/brigade1972.png");
+  background-size: cover;
+  background-position: center -800%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.brigade-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 15, 0.85);
+  z-index: 0;
+}
+
+.brigade-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Muktifauj 1972 Speech Background */
+
+.muktifauj-page{
+background:url("../assets/muktifauj1972.png") center/cover no-repeat;
+background-size: cover;
+background-position: center -180%;
+background-attachment: fixed;
+background-repeat: no-repeat;
+}
+
+.muktifauj-page::before {
+content: "";
+position: fixed;
+inset: 0;
+background: rgba(0, 20, 15, 0.85);
+z-index: 0;
+}
+
+.muktifauj-page > * {
+position: relative;
+z-index: 1;
+}
+
+/* =========================
+   RESPONSIVE NAVBAR */
+   
+@media (max-width:768px){
+
+.menu-toggle{
+display:none;
+}
+
+.navbar nav{
+position:static;
+display:flex;
+gap:6px;
+}
+
+}
+
+/* when menu opens */
+
+.navbar nav.active{
+right:0;
+}
+
+.navbar nav{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.navbar nav a,
+#musicToggle{
+
+width:auto;
+margin:0;
+padding:6px 12px;
+font-size:12px;
+
+}
+
+.navbar nav.active{
+display:flex;
+}
+
+@media (max-width:768px){
+
+.hero-signature{
+top:200px;
+}
+
+.primary-btn{
+margin-top:140px;
+}
+
+}
+
+/* ================= MOBILE HERO FIX ================= */
+
+@media (max-width:768px){
+
+.hero{
+min-height:100vh;
+padding-top:40px;
+}
+
+/* Title */
+.hero-content h2{
+font-size:28px;
+margin-bottom:25px;
+}
+
+/* Red circle */
+.flag-overlay{
+width:330px;
+height:330px;
+}
+
+/* Signature position */
+.hero-signature{
+top:180px;
+}
+
+.hero-signature img{
+height:85px;
+}
+
+/* Button position */
+.primary-btn{
+margin-top:160px;
+padding:12px 24px;
+font-size:16px;
+}
+
+}
+
+.menu-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+opacity:0;
+visibility:hidden;
+z-index:998;
+}
+
+.menu-overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+
+@media (max-width:768px){
+
+.mujib-overlay{
+background-size:140%;
+opacity:0.35;
+}
+
+}
+
+.speech-item:hover{
+background: rgba(0,0,0,0.55);
+}

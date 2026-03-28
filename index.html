@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>তর্জনী</title>
+
+  <!-- Bengali Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Kalpurush&display=swap" rel="stylesheet">
+
+  <!-- English Font Suggestion -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="assets/mujib.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= NAVBAR ================= -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<header class="navbar">
+
+<div class="logo">
+  <a href="index.html">
+    <img src="assets/Finger.png" draggable="false">
+  </a>
+</div>
+
+  <!-- <h1 class="nav-title">বঙ্গবন্ধুর ভাষণসমূহ</h1> -->
+
+  <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  <nav id="navMenu">
+    <button id="musicToggle">Music</button>
+  </nav>
+
+</header>
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <div class="flag-overlay"></div>
+  <div class="mujib-overlay"></div>
+
+  <div class="hero-content">
+
+    <h2>বঙ্গবন্ধুর ভাষণসমূহ</h2>
+
+    <button class="primary-btn" onclick="goToSpeeches()">
+      প্রবেশ করুন
+    </button>
+
+  </div>
+
+  <div class="hero-signature">
+    <img src="assets/Sheikh_Mujib_Signature.png">
+  </div>
+
+</section>
+
+<script>
+function goToSpeeches() {
+  window.location.href = "speeches.html";
+}
+</script>
+
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
+
+toggle.onclick = function(){
+
+nav.classList.toggle("active");
+overlay.classList.toggle("active");
+
+};
+
+overlay.onclick = function(){
+
+nav.classList.remove("active");
+overlay.classList.remove("active");
+
+};
+
+</script>
+
+<script>
+const links = document.querySelectorAll("#navMenu a");
+
+links.forEach(link=>{
+link.addEventListener("click",()=>{
+nav.classList.remove("active");
+overlay.classList.remove("active");
+});
+});
+
+</script>
+
+  <!-- ================= FOOTER ================= -->
+
+<footer>
+  <p>© 2026 তর্জনী | একটি ঐতিহাসিক সংকলন</p>
+</footer>
+
+<script>
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
+</script>
+
+<script>
+
+</script>
+
+<script src="js/music.js"></script>
+<script type="module" src="js/loadSpeeches.js"></script>
+</body>
+</html>
+
